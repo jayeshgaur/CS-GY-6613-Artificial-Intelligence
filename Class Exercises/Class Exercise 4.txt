@@ -1,0 +1,6 @@
+1.	
+(a,b,c,d,e,f,g) = (4,4,3,4,6,3,8)
+
+
+2. k and o nodes will not be evaluated
+	

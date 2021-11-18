@@ -1,0 +1,11 @@
+1a)  A -> B -> E -> F
+
+1b) A -> B -> D
+
+1c) A -> C
+
+2a) B
+
+2b) A
+
+2c) Using maximum would be worse than average since there is a trade off on risk with reward. We might be able to stumble on a path with high reward but we also run the risk of failing. Taking the example of PokemonGo, if we focus on the rarest of pokemons only which statistically gives us the best pokemon, it is possible that the region where it is found does not have a lot of diversity and in return we lose getting other pokemons which are usually very easy to come by on any other location except the outlier of the rare pokemon. 

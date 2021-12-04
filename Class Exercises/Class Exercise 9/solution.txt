@@ -1,0 +1,12 @@
+Q1] 
+
+A: Cluster 1 = b, e  ; Cluster 2 : a, d, f, g, h ; Cluster 3 : c
+
+B: Cluster 1(Centroid 25) = b, e, f ; Cluster 2(Centroid 78) : a, d, h ; Cluster 3(Centroid 120): c, g
+
+
+Q2]
+
+
+Cluster 1 = b, e, f ; Cluster 2 : a, d, h ; Cluster 3 : c, g
+

@@ -72,68 +72,66 @@ def load_cluster(path):
 #for testing the clustering algorithms
 def silhouette(X,cluster):
     return metrics.silhouette_score(X, cluster, metric='euclidean')
-for _ in range(10):
-
-	X, y = load_data("county_statistics.csv")
-	X_train, X_test, y_train, y_test = train_test_split(X, y, 0.75)
-
-	y_cluster = load_cluster("real_county_cluster.txt")
-	#print(y_cluster)
-
-	#Initialization
-	#MLP
-	lr = .0001
-	w1 = np.random.normal(0, .1, size=(X_train.shape[1], 10))
-	w2 = np.random.normal(0, .1, size=(10,1))
-	b1 = np.random.normal(0, .1, size=(1,10))
-	b2 = np.random.normal(0, .1, size=(1,1))
-	mlp = models.MLP(w1, b1, w2, b2, lr)
-
-	#Train
-	steps = 100*y_train.size
-	mlp.train(X_train, y_train, steps)
-
-	#Check weights (For grading)
-	# mlp.w1
-	# mlp.b1
-	# mlp.w2
-	# mlp.b2
-
-	#Evaluate
-	def evaluate(solutions, real):
-		if(solutions.shape != real.shape):
-			raise ValueError("Output is wrong shape.")
-		predictions = np.array(solutions)
-		labels = np.array(real)
-		return (predictions == labels).sum() / float(labels.size)
 
 
-	solutions = mlp.predict(X_test)
-	print(f"MLP acc: {evaluate(solutions, y_test)*100.0}%\n")
+X, y = load_data("county_statistics.csv")
+X_train, X_test, y_train, y_test = train_test_split(X, y, 0.75)
+
+y_cluster = load_cluster("real_county_cluster.txt")
+#print(y_cluster)
+
+import time
+start_time = time.time()
+
+#Initialization
+#MLP
+lr = .0001
+w1 = np.random.normal(0, .1, size=(X_train.shape[1], 10))
+w2 = np.random.normal(0, .1, size=(10,1))
+b1 = np.random.normal(0, .1, size=(1,10))
+b2 = np.random.normal(0, .1, size=(1,1))
+mlp = models.MLP(w1, b1, w2, b2, lr)
+
+#Train
+steps = 100*y_train.size
+mlp.train(X_train, y_train, steps)
+
+#Check weights (For grading)
+# mlp.w1
+# mlp.b1
+# mlp.w2
+# mlp.b2
+
+#Evaluate
+def evaluate(solutions, real):
+	if(solutions.shape != real.shape):
+		raise ValueError("Output is wrong shape.")
+	predictions = np.array(solutions)
+	labels = np.array(real)
+	return (predictions == labels).sum() / float(labels.size)
 
 
-	#Initialization
-	#k_means
-	k = 3
-	t=50 #max iterations
-	k_means = models.K_MEANS(k, t)
+solutions = mlp.predict(X_test)
+print(f"MLP acc: {evaluate(solutions, y_test)*100.0}%\n")
 
+#Initialization
+#k_means
+k = 3
+t=50 #max iterations
+k_means = models.K_MEANS(k, t)
 	#train
-	KM_cluster = k_means.train(X)
-
+KM_cluster = k_means.train(X)
 	#evaluate
-	print(f"K-Means silhouette: {silhouette(X, KM_cluster)*100.0}%")
+print(f"K-Means silhouette: {silhouette(X, KM_cluster)*100.0}%")
 
-
-	#AGNES
-	k = 3
-	agnes = models.AGNES(k)
-
+#AGNES
+k = 3
+agnes = models.AGNES(k)
 	#train
-	AG_cluster = agnes.train(X)
-
+AG_cluster = agnes.train(X)
 	#evaluate
-	print(f"AGNES silhouette: {silhouette(X, AG_cluster)*100.0}%")
+print(f"AGNES silhouette: {silhouette(X, AG_cluster)*100.0}%")
+print("--- %s seconds ---" % (time.time() - start_time))
 
 
 

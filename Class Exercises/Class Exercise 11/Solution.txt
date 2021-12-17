@@ -1,0 +1,11 @@
+Q1:
+
+The first text is AI generated.
+
+Q2:
+
+The catch was in the first sentence itself the AI generated in the first text. The seed sentence provided says that Hermione "finally" found "THE" shirt and then the text says she picks up the "first' shirt she sees. The second paragraph as well does not follow a proper flow. Hermione found the shirt, that should be the end of it. But it seems she's still not sure about the shirt. The major giveaway is also the fact that the entire text focuses on the "shirt" keyword without ever moving on from it, while also not making any proper storyline/sense.
+
+Q3
+
+Yes. The intelligent artificial agent fixated on a few words without understanding the context. The problem is similar to the Chinese room problem statement, an intelligent system should be able to perceive context and continue/answer/proceed accordingly. I believe future systems will be able to perceive context better and build on their ideas, reasoning and decisions based on what has already been said/done, including the external stimulus and their own past actions.

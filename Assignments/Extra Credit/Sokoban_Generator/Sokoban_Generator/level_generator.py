@@ -41,13 +41,6 @@ def lev2Str(l):
 	return s
 
 
-
-
-
-
-
-
-
 # creates an empty base sokoban level
 def makeEmptyLevel(w=9,h=9):
 	l = []
